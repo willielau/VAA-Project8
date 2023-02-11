@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>VAA-Project8 - Project Proposal</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">VAA-Project8</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./x">
+ <span class="menu-text">Proposal</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./x">
+ <span class="menu-text">Shiny App</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./x">
+ <span class="menu-text">Poster</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#insights-into-government-procurement" id="toc-insights-into-government-procurement" class="nav-link active" data-scroll-target="#insights-into-government-procurement"><strong>Insights into Government Procurement</strong></a>
+  <ul class="collapse">
+  <li><a href="#project-motivation" id="toc-project-motivation" class="nav-link" data-scroll-target="#project-motivation"><strong>Project Motivation</strong></a></li>
+  <li><a href="#problems" id="toc-problems" class="nav-link" data-scroll-target="#problems"><strong>Problems</strong></a></li>
+  <li><a href="#relevant-related-work" id="toc-relevant-related-work" class="nav-link" data-scroll-target="#relevant-related-work"><strong>Relevant Related Work</strong></a></li>
+  <li><a href="#data-description" id="toc-data-description" class="nav-link" data-scroll-target="#data-description"><strong>Data Description</strong>&nbsp;</a></li>
+  <li><a href="#story-board" id="toc-story-board" class="nav-link" data-scroll-target="#story-board"><strong>Story Board</strong></a></li>
+  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages"><strong>R Packages</strong></a></li>
+  <li><a href="#project-milestones" id="toc-project-milestones" class="nav-link" data-scroll-target="#project-milestones"><strong>Project Milestones</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Project Proposal</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="insights-into-government-procurement" class="level1">
+<h1><strong>Insights into Government Procurement</strong></h1>
+<section id="project-motivation" class="level2">
+<h2 class="anchored" data-anchor-id="project-motivation"><strong>Project Motivation</strong></h2>
+<p>Government Electronic Business (GeBIZ) is the Singapore Government's one-stop e-procurement portal for use by all ministries and agencies in tendering for goods and services. It encompasses all the public sector's request for proposals, quotations, and tenders which suppliers can easily search for and download relevant information packages, and thereafter submit their bids electronically.&nbsp;&nbsp;</p>
+<p>There is a huge amount of data collected on past procurements since GeBIZ's launch in 2000 which in turn becomes a valuable source to generate powerful insights into government procurements. This treasure trove has not been widely explored or utilized (at least publicly) and through a R Shiny application, we seek to explore meaningful insights that can aide anyone looking into government procurements, be it the government agencies themselves, the suppliers keen on participating in government tenders, or even a member of the general public with an interest to see one facet of how tax dollars are spent.&nbsp;&nbsp;</p>
+</section>
+<section id="problems" class="level2">
+<h2 class="anchored" data-anchor-id="problems"><strong>Problems</strong></h2>
+<p>While the database of historical tenders is extensive, it is not organized or visualized in a manner that allows for patterns or insights to be easily derived without having some knowledge of data analytics methods and applications.&nbsp;&nbsp;</p>
+<p>Therefore, our R Shiny application seeks to address this and deep dive into the areas including but not limited to:&nbsp;</p>
+<ol type="1">
+<li>Categorizing the different types of procurement so that past suppliers for such goods or services can be easily matched with inter-agencies.&nbsp;&nbsp;</li>
+</ol>
+<!-- -->
+<ol start="2" type="1">
+<li>Identify what kinds of good or services is most often procured by each ministry or agency&nbsp;</li>
+</ol>
+<!-- -->
+<ol start="3" type="1">
+<li>Forecast procurement expenses for each ministry or agency in the coming year&nbsp;</li>
+</ol>
+<!-- -->
+<ol start="4" type="1">
+<li>Correlation analysis between successful bidder's Paid-up Capital (S$) and Awarded Amount (S$)&nbsp;</li>
+</ol>
+<!-- -->
+<ol start="5" type="1">
+<li>Decision tree matrix to visualise relationship between successful bidder's primary industry, Paid-Up Capital (S$), type of product or service required, and awarded amount. For example, a project management company may be required for a large-scale project. The Singapore Standard Industrial Classification (SSIC) code is used to identify industry.&nbsp;</li>
+</ol>
+<!-- -->
+<ol start="6" type="1">
+<li>Explore any bias in terms of frequency of using the same supplier that could highlight a need to investigate if this is with or without good reason.&nbsp;</li>
+</ol>
+<!-- -->
+<ol start="7" type="1">
+<li>Examine trends in the peak and troughs of procurements in each agency to see if there is any truth in the hypothesis that organizations tend to spend more liberally at the end of the budget period.&nbsp;&nbsp;</li>
+</ol>
+</section>
+<section id="relevant-related-work" class="level2">
+<h2 class="anchored" data-anchor-id="relevant-related-work"><strong>Relevant Related Work</strong></h2>
+<p>It seems that there is a business intelligence tool named GeBIZ Insight that exists but it is either entirely an internal tool or for some other reason cannot be publicly found anymore.&nbsp;&nbsp;</p>
+<p>Other previous works include an earlier ISSS608 class project in 2018 which provided network visualization between ministry, agency and supplier. The visualization supported inter- and intra- agency opportunities for information sharing and bulk negotiation with suppliers. A potential challenge to previous use case may arise due to variances in product or service and project size.&nbsp;&nbsp;</p>
+<p>To enrich ministerial / agency understanding of opportunities, this project will approach the dataset from the perspective of <strong>products and services</strong>. In addition, we look to enrich the procurement data with ACRA information on industry classification and paid-up capital. This will enable the public and corporate bidders to understand any other underlying relationship between the successful bidder and project type. It will also be interesting to see if the insights generated 5 years ago have changed since the world has drastically changed with the COVID pandemic and other global events.&nbsp;</p>
+</section>
+<section id="data-description" class="level2">
+<h2 class="anchored" data-anchor-id="data-description"><strong>Data Description</strong>&nbsp;</h2>
+<p>Data will be drawn mainly from <a href="https://data.gov.sg/dataset/government-procurement">data.gov.sg</a> and supplemented by GeBiz portal and Singapore Government Directory. We will extract the open tenders put out by government agencies from years Jan 2017 to March 2022. The main dataset will consist of 7 columns such as tender description, awarded date, awarded amount, supplier and agency information. We will also be extracting 'ACRA Information on Corporate Entities' from data.gov.sg to supplement supplier's information on industry classification (Primary SSIC code &amp; description) and paid-up capital.&nbsp;&nbsp;</p>
+</section>
+<section id="story-board" class="level2">
+<h2 class="anchored" data-anchor-id="story-board"><strong>Story Board</strong></h2>
+<p><img src="images/storyboard.png" class="img-fluid"></p>
+<p>The interactive dashboard will be split into 3 sections where users will be recommended to go through the sections sequentially.&nbsp;&nbsp;</p>
+<p><u><strong>1. Exploratory Data Analysis</strong></u></p>
+<ol type="a">
+<li><p>Merge Procurement data and ACRA information on corporate entities&nbsp;</p></li>
+<li><p>Insert procurement category as stated in GeBiz website into 2022 Procurement data&nbsp;</p></li>
+<li><p>Pareto Charts to show which procurement categories account for 80% of total government procurement spending&nbsp;</p></li>
+<li><p>Trendline for the different procurement categories and what is the trend of the value awarded&nbsp;</p></li>
+<li><p>Wordcloud / Named Entity Recognition to identify what kind of services or goods are often procured by different ministries&nbsp;</p></li>
+<li><p>Treemap to breakdown the ministries spending by procurement categories and/or types of services/goods to identify top expenditure&nbsp;</p></li>
+</ol>
+<p><u><strong>2. Inferential Analysis</strong></u></p>
+<ol type="a">
+<li><p>ANOVA to highlight any significant differences in mean for tenders by year/product/service/agency&nbsp;</p></li>
+<li><p>Predictive forecast of procurement spending by product / service&nbsp;</p></li>
+<li><p>Time-series analysis to explore the relationship between calendar year period and volume/value of awarded contracts&nbsp;</p></li>
+</ol>
+<p><u><strong>3. Cluster Analysis</strong></u></p>
+<ol type="a">
+<li><p>Network Analysis of the different ministries/agencies vs suppliers to investigate their connectivity and any strong links or bias&nbsp;</p></li>
+<li><p>Sankey diagram to show flows of ministries/agencies, suppliers, procurement categories and value&nbsp;</p></li>
+<li><p>Decision Tree&nbsp;&nbsp;</p></li>
+</ol>
+</section>
+<section id="r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="r-packages"><strong>R Packages</strong></h2>
+<p>The software used for this project is R, and the R packages that will be applied for the dashboard application are:&nbsp;</p>
+<table class="table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 65%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Packages</strong>&nbsp;</th>
+<th><strong>Purpose</strong>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Shiny and Shiny dashboard&nbsp;</td>
+<td>To build interactive web application and visualisations&nbsp;</td>
+</tr>
+<tr class="even">
+<td>Spacyr&nbsp;</td>
+<td>To tokenize and tag common product or services&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>Tidyverse&nbsp;</td>
+<td>To tidy up and manipulate the data&nbsp;</td>
+</tr>
+<tr class="even">
+<td>Plotly&nbsp;</td>
+<td>To create interactive graphs&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>ggplot2&nbsp;</td>
+<td>To create static graphs&nbsp;</td>
+</tr>
+<tr class="even">
+<td>knitr&nbsp;</td>
+<td>Dynamic report generation with R&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>ggstatsplot&nbsp;</td>
+<td>To create graphics with details from statistical tests&nbsp;</td>
+</tr>
+<tr class="even">
+<td>visNetwork&nbsp;</td>
+<td>To create network visualisation&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="project-milestones" class="level2">
+<h2 class="anchored" data-anchor-id="project-milestones"><strong>Project Milestones</strong></h2>
+<p><img src="images/timeline.png" class="img-fluid"></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

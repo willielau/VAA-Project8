@@ -5,13 +5,18 @@ website:
   title: "VAA-Project8"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: Introduction
+        href: index.qmd
+      - text: Proposal
+        href: x
+      - text: Shiny App
+        href: x
+      - text: Poster
+        href: x
 
 format:
   html:
-    theme: cosmo
+    theme: slate
     css: styles.css
     toc: true
 
