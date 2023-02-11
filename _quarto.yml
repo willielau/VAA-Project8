@@ -5,14 +5,14 @@ website:
   title: "VAA-Project8"
   navbar:
     left:
-      - text: Introduction
-        href: index.qmd
-      - text: Proposal
-        href: "proposal.html"
-      - text: Shiny App
-        href: x
-      - text: Poster
-        href: x
+    - text: Introduction
+      href: index.qmd
+    - text: Proposal
+      href: "proposal.html"
+    - text: Shiny App
+      href: x
+    - text: Poster
+      href: x
 
 format:
   html:
