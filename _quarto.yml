@@ -8,7 +8,7 @@ website:
       - text: Introduction
         href: index.qmd
       - text: Proposal
-        href: x
+        href: proposal.qmd
       - text: Shiny App
         href: x
       - text: Poster
