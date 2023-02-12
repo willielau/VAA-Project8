@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -116,9 +116,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#problems" id="toc-problems" class="nav-link" data-scroll-target="#problems"><strong>Problems</strong></a></li>
   <li><a href="#relevant-related-work" id="toc-relevant-related-work" class="nav-link" data-scroll-target="#relevant-related-work"><strong>Relevant Related Work</strong></a></li>
   <li><a href="#data-description" id="toc-data-description" class="nav-link" data-scroll-target="#data-description"><strong>Data Description</strong>&nbsp;</a></li>
-  <li><a href="#story-board" id="toc-story-board" class="nav-link" data-scroll-target="#story-board"><strong>Story Board</strong></a></li>
+  <li><a href="#data-preparation-story-board" id="toc-data-preparation-story-board" class="nav-link" data-scroll-target="#data-preparation-story-board"><strong>Data Preparation &amp; Story Board</strong></a></li>
   <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages"><strong>R Packages</strong></a></li>
   <li><a href="#project-milestones" id="toc-project-milestones" class="nav-link" data-scroll-target="#project-milestones"><strong>Project Milestones</strong></a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><strong>References</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -147,75 +148,110 @@ ul.task-list li input[type="checkbox"] {
 <h1><strong>Insights into Government Procurement</strong></h1>
 <section id="project-motivation" class="level2">
 <h2 class="anchored" data-anchor-id="project-motivation"><strong>Project Motivation</strong></h2>
-<p>Government Electronic Business (GeBIZ) is the Singapore Government's one-stop e-procurement portal for use by all ministries and agencies in tendering for goods and services. It encompasses all the public sector's request for proposals, quotations, and tenders which suppliers can easily search for and download relevant information packages, and thereafter submit their bids electronically.&nbsp;&nbsp;</p>
-<p>There is a huge amount of data collected on past procurements since GeBIZ's launch in 2000 which in turn becomes a valuable source to generate powerful insights into government procurements. This treasure trove has not been widely explored or utilized (at least publicly) and through a R Shiny application, we seek to explore meaningful insights that can aide anyone looking into government procurements, be it the government agencies themselves, the suppliers keen on participating in government tenders, or even a member of the general public with an interest to see one facet of how tax dollars are spent.&nbsp;&nbsp;</p>
+<p>Government Electronic Business (GeBIZ) is Singapore Government’s one-stop e-procurement portal, created to facilitate transparency in procurement requirements, procedure, and evaluation<a href="#_ftn1">[1]</a>. Purchases can either be centralised (ministries and government agencies will then purchase off service-wide contracts) or decentralised. GeBIZ encompasses the public sector’s request for quotations and tenders within the procurement procedure, except where emergency procurement procedures apply:</p>
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 15%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Category</th>
+<th>In GeBiz?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Up to S$6,000</td>
+<td>Small Value Purchase</td>
+<td>Optional</td>
+<td>May purchase direct or off the shelf</td>
+</tr>
+<tr class="even">
+<td>S$6.000 to S$90,000</td>
+<td>Quotation</td>
+<td>Yes</td>
+<td>Invitation to quote on GeBiz</td>
+</tr>
+<tr class="odd">
+<td>Above S$90,000</td>
+<td>Tender</td>
+<td>Yes</td>
+<td>Open, selective, or limited tender</td>
+</tr>
+</tbody>
+</table>
+<p>Summary of Procurement Procedure, source: GeBIZ<a href="#_ftn2">[2]</a></p>
+<p>Records of Government Procurement via GeBIZ between 1 April 2016 and 31 March 2022 are available on data.gov.sg. In this project, we aim to categorise the products or services from the raw text provided by GeBIZ, thereby generating powerful insights on government procurements. This treasure trove has not been widely explored or utilized (at least publicly) and through a R Shiny application, we seek to explore meaningful insights that can aide anyone looking into government procurements, be it the government agencies themselves, the suppliers keen on participating in government tenders, or even a member of the general public with an interest to see one facet of how tax dollars are spent.</p>
 </section>
 <section id="problems" class="level2">
 <h2 class="anchored" data-anchor-id="problems"><strong>Problems</strong></h2>
-<p>While the database of historical tenders is extensive, it is not organized or visualized in a manner that allows for patterns or insights to be easily derived without having some knowledge of data analytics methods and applications.&nbsp;&nbsp;</p>
-<p>Therefore, our R Shiny application seeks to address this and deep dive into the areas including but not limited to:&nbsp;</p>
+<p>While the database of historical tenders is extensive, it is not organized or visualized in a manner that allows for patterns or insights to be easily derived without having some knowledge of data analytics methods and applications.</p>
+<p>Therefore, our R Shiny application seeks to address this and deep dive into the areas including but not limited to:</p>
 <ol type="1">
-<li>Categorizing the different types of procurement so that past suppliers for such goods or services can be easily matched with inter-agencies.&nbsp;&nbsp;</li>
-</ol>
-<!-- -->
-<ol start="2" type="1">
-<li>Identify what kinds of good or services is most often procured by each ministry or agency&nbsp;</li>
-</ol>
-<!-- -->
-<ol start="3" type="1">
-<li>Forecast procurement expenses for each ministry or agency in the coming year&nbsp;</li>
-</ol>
-<!-- -->
-<ol start="4" type="1">
-<li>Correlation analysis between successful bidder's Paid-up Capital (S$) and Awarded Amount (S$)&nbsp;</li>
-</ol>
-<!-- -->
-<ol start="5" type="1">
-<li>Decision tree matrix to visualise relationship between successful bidder's primary industry, Paid-Up Capital (S$), type of product or service required, and awarded amount. For example, a project management company may be required for a large-scale project. The Singapore Standard Industrial Classification (SSIC) code is used to identify industry.&nbsp;</li>
-</ol>
-<!-- -->
-<ol start="6" type="1">
-<li>Explore any bias in terms of frequency of using the same supplier that could highlight a need to investigate if this is with or without good reason.&nbsp;</li>
-</ol>
-<!-- -->
-<ol start="7" type="1">
-<li>Examine trends in the peak and troughs of procurements in each agency to see if there is any truth in the hypothesis that organizations tend to spend more liberally at the end of the budget period.&nbsp;&nbsp;</li>
+<li>Categorizing the records from its current raw text form; identify goods or services which are required by the government. This is crucial to enable practical use of the dataset by any user group.
+<ol type="a">
+<li><p>Examine and forecast time-series trends in procurement spend; is there any truth in the hypothesis that organizations tend to spend more liberally at the end of budgeting period?</p></li>
+<li><p>Is there any difference in GeBIZ procurement during the Covid period (identified as April 2020 to March 2022 by the Auditor-General’s Office), when emergency procurement procedures were utilized?</p></li>
+</ol></li>
+<li>The dataset from GeBIZ is limited in scope; expand the scope beyond the seven variables
+<ol type="a">
+<li><p>Enrich the dataset by labeling the Ministry which each Government Agency belongs to</p></li>
+<li><p>Enrich the dataset with additional information on the supplier (i.e.&nbsp;primary industry, paid-up capital)</p></li>
+</ol></li>
+<li>Explore any bias in terms of frequency of using the same supplier that could highlight a need to investigate if this is with or without good reason.</li>
 </ol>
 </section>
 <section id="relevant-related-work" class="level2">
 <h2 class="anchored" data-anchor-id="relevant-related-work"><strong>Relevant Related Work</strong></h2>
-<p>It seems that there is a business intelligence tool named GeBIZ Insight that exists but it is either entirely an internal tool or for some other reason cannot be publicly found anymore.&nbsp;&nbsp;</p>
+<p>It seems that there is a business intelligence tool named GeBIZ Insight that existed but it is either entirely an internal tool or for some other reason cannot be publicly found anymore.&nbsp;&nbsp;</p>
 <p>Other previous works include an earlier ISSS608 class project in 2018 which provided network visualization between ministry, agency and supplier. The visualization supported inter- and intra- agency opportunities for information sharing and bulk negotiation with suppliers. A potential challenge to previous use case may arise due to variances in product or service and project size.&nbsp;&nbsp;</p>
-<p>To enrich ministerial / agency understanding of opportunities, this project will approach the dataset from the perspective of <strong>products and services</strong>. In addition, we look to enrich the procurement data with ACRA information on industry classification and paid-up capital. This will enable the public and corporate bidders to understand any other underlying relationship between the successful bidder and project type. It will also be interesting to see if the insights generated 5 years ago have changed since the world has drastically changed with the COVID pandemic and other global events.&nbsp;</p>
+<p>To enrich ministerial / agency understanding of opportunities, this project will approach the dataset from the perspective of products and services. In addition, we look to enrich the procurement data with ACRA information on industry classification and paid-up capital. This will enable the public and corporate bidders to understand any other underlying relationship between the successful bidder and project type. It will also be interesting to see if the insights generated 5 years ago have changed since the world has drastically changed with the COVID pandemic and other global events.&nbsp;</p>
 </section>
 <section id="data-description" class="level2">
 <h2 class="anchored" data-anchor-id="data-description"><strong>Data Description</strong>&nbsp;</h2>
-<p>Data will be drawn mainly from <a href="https://data.gov.sg/dataset/government-procurement">data.gov.sg</a> and supplemented by GeBiz portal and Singapore Government Directory. We will extract the open tenders put out by government agencies from years Jan 2017 to March 2022. The main dataset will consist of 7 columns such as tender description, awarded date, awarded amount, supplier and agency information. We will also be extracting 'ACRA Information on Corporate Entities' from data.gov.sg to supplement supplier's information on industry classification (Primary SSIC code &amp; description) and paid-up capital.&nbsp;&nbsp;</p>
+<p>Data will be drawn mainly from <a href="https://data.gov.sg/dataset/government-procurement">data.gov.sg</a> and supplemented by GeBiz portal and Singapore Government Directory. We will extract the open tenders put out by government agencies from years Jan 2017 to March 2022. The main dataset will consist of 7 columns such as tender description, awarded date, awarded amount, supplier and agency information. We will also be extracting ‘ACRA Information on Corporate Entities’ from data.gov.sg to supplement supplier’s information on industry classification (Primary SSIC code &amp; description) and paid-up capital.</p>
 </section>
-<section id="story-board" class="level2">
-<h2 class="anchored" data-anchor-id="story-board"><strong>Story Board</strong></h2>
-<p><img src="images/storyboard.png" class="img-fluid"></p>
-<p>The interactive dashboard will be split into 3 sections where users will be recommended to go through the sections sequentially.&nbsp;&nbsp;</p>
-<p><u><strong>1. Exploratory Data Analysis</strong></u></p>
+<section id="data-preparation-story-board" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation-story-board"><strong>Data Preparation &amp; Story Board</strong></h2>
+<p><img src="images/image-943879244.png" class="img-fluid"></p>
+<ol type="1">
+<li>Data wrangling and Transformation
 <ol type="a">
-<li><p>Merge Procurement data and ACRA information on corporate entities&nbsp;</p></li>
-<li><p>Insert procurement category as stated in GeBiz website into 2022 Procurement data&nbsp;</p></li>
-<li><p>Pareto Charts to show which procurement categories account for 80% of total government procurement spending&nbsp;</p></li>
-<li><p>Trendline for the different procurement categories and what is the trend of the value awarded&nbsp;</p></li>
-<li><p>Wordcloud / Named Entity Recognition to identify what kind of services or goods are often procured by different ministries&nbsp;</p></li>
-<li><p>Treemap to breakdown the ministries spending by procurement categories and/or types of services/goods to identify top expenditure&nbsp;</p></li>
+<li><p>Merge data from GeBiZ and ACRA into Government Procurement dataset</p></li>
+<li><p>Use topic modeling to analyze procurement text and determine cluster words relevant to products or services</p></li>
+</ol></li>
 </ol>
-<p><u><strong>2. Inferential Analysis</strong></u></p>
+<!-- -->
+<ol start="2" type="1">
+<li>Exploratory Data Analysis (EDA)
 <ol type="a">
-<li><p>ANOVA to highlight any significant differences in mean for tenders by year/product/service/agency&nbsp;</p></li>
-<li><p>Predictive forecast of procurement spending by product / service&nbsp;</p></li>
-<li><p>Time-series analysis to explore the relationship between calendar year period and volume/value of awarded contracts&nbsp;</p></li>
+<li><p>Pareto Charts to visualize total amount awarded on each category</p></li>
+<li><p>Interactive wordcloud to identify related key words to each category</p>
+<p><img src="images/image-484157554.png" class="img-fluid"></p></li>
+</ol></li>
 </ol>
-<p><u><strong>3. Cluster Analysis</strong></u></p>
+<!-- -->
+<ol start="3" type="1">
+<li>Time-Series Analysis
 <ol type="a">
-<li><p>Network Analysis of the different ministries/agencies vs suppliers to investigate their connectivity and any strong links or bias&nbsp;</p></li>
-<li><p>Sankey diagram to show flows of ministries/agencies, suppliers, procurement categories and value&nbsp;</p></li>
-<li><p>Decision Tree&nbsp;&nbsp;</p></li>
+<li><p>Time-series analysis to explore the relationship between calendar year period and volume/value of awarded contracts</p></li>
+<li><p>Predictive forecast of procurement spending by product / service</p></li>
+<li><p>Sankey diagram to show flow of spending from ministry to supplier, by procurement category</p>
+<p><img src="images/image-1392481260.png" class="img-fluid"></p></li>
+</ol></li>
+</ol>
+<!-- -->
+<ol start="4" type="1">
+<li>Cluster Analysis
+<ol type="a">
+<li><p>Network Analysis of the different ministries/agencies vs suppliers to investigate their connectivity and any strong links or bias</p>
+<p><img src="images/image-2125455200.png" class="img-fluid"></p></li>
+</ol></li>
 </ol>
 </section>
 <section id="r-packages" class="level2">
@@ -223,8 +259,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The software used for this project is R, and the R packages that will be applied for the dashboard application are:&nbsp;</p>
 <table class="table">
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 36%">
+<col style="width: 63%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -263,7 +299,19 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>visNetwork&nbsp;</td>
-<td>To create network visualisation&nbsp;</td>
+<td>To create network visualization&nbsp;</td>
+</tr>
+<tr class="odd">
+<td>tm_map, wordcloud2</td>
+<td>To create word cloud</td>
+</tr>
+<tr class="even">
+<td>crosstalk</td>
+<td>To link different plots</td>
+</tr>
+<tr class="odd">
+<td>LDAvis</td>
+<td>To visualize and interpret topic models</td>
 </tr>
 </tbody>
 </table>
@@ -271,6 +319,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="project-milestones" class="level2">
 <h2 class="anchored" data-anchor-id="project-milestones"><strong>Project Milestones</strong></h2>
 <p><img src="images/timeline.png" class="img-fluid"></p>
+<p><a href="#_ftnref1">[1]</a> https://www.mof.gov.sg/policies/government-procurement</p>
+<p><a href="#_ftnref2">[2]</a> https://www.gebiz.gov.sg/singapore-government-procurement-regime.html</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references"><strong>References</strong></h2>
+<p>Auto, H. (2022, July 20).&nbsp;<em>Auditor-General’s Office report: 8 key findings | The Straits Times</em>. www.straitstimes.com. https://www.straitstimes.com/singapore/eight-key-findings-in-agos-report</p>
+<p><em>GeBIZ | Guide to Singapore Procurement</em>. (n.d.). www.gebiz.gov.sg. https://www.gebiz.gov.sg/singapore-government-procurement-regime.html</p>
+<p><em>Group17 Overview - Visual Analytics and Applications</em>. (n.d.). Wiki.smu.edu.sg. Retrieved February 12, 2023, from https://wiki.smu.edu.sg/1718t3isss608/Group17_Overview</p>
+<p><em>Government Procurement</em>. (n.d.). MOF. Retrieved February 12, 2023, from https://www.mof.gov.sg/policies/government-procurement</p>
 
 
 </section>

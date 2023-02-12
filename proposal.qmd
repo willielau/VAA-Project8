@@ -6,102 +6,91 @@ title: "Project Proposal"
 
 ## **Project Motivation**
 
-Government Electronic Business (GeBIZ) is the Singapore Government\'s one-stop e-procurement portal for use by all ministries and agencies in tendering for goods and services. It encompasses all the public sector\'s request for proposals, quotations, and tenders which suppliers can easily search for and download relevant information packages, and thereafter submit their bids electronically.  
+Government Electronic Business (GeBIZ) is Singapore Government's one-stop e-procurement portal, created to facilitate transparency in procurement requirements, procedure, and evaluation[\[1\]](#_ftn1). Purchases can either be centralised (ministries and government agencies will then purchase off service-wide contracts) or decentralised. GeBIZ encompasses the public sector's request for quotations and tenders within the procurement procedure, except where emergency procurement procedures apply:
 
-There is a huge amount of data collected on past procurements since GeBIZ\'s launch in 2000 which in turn becomes a valuable source to generate powerful insights into government procurements. This treasure trove has not been widely explored or utilized (at least publicly) and through a R Shiny application, we seek to explore meaningful insights that can aide anyone looking into government procurements, be it the government agencies themselves, the suppliers keen on participating in government tenders, or even a member of the general public with an interest to see one facet of how tax dollars are spent.  
+| Value                 | Category             | In GeBiz? | Description                          |
+|-----------------|-----------------|-----------|--------------------------|
+| Up to S\$6,000        | Small Value Purchase | Optional  | May purchase direct or off the shelf |
+| S\$6.000 to S\$90,000 | Quotation            | Yes       | Invitation to quote on GeBiz         |
+| Above S\$90,000       | Tender               | Yes       | Open, selective, or limited tender   |
+
+Summary of Procurement Procedure, source: GeBIZ[\[2\]](#_ftn2)
+
+Records of Government Procurement via GeBIZ between 1 April 2016 and 31 March 2022 are available on data.gov.sg. In this project, we aim to categorise the products or services from the raw text provided by GeBIZ, thereby generating powerful insights on government procurements. This treasure trove has not been widely explored or utilized (at least publicly) and through a R Shiny application, we seek to explore meaningful insights that can aide anyone looking into government procurements, be it the government agencies themselves, the suppliers keen on participating in government tenders, or even a member of the general public with an interest to see one facet of how tax dollars are spent.
 
 ## **Problems**
 
-While the database of historical tenders is extensive, it is not organized or visualized in a manner that allows for patterns or insights to be easily derived without having some knowledge of data analytics methods and applications.  
+While the database of historical tenders is extensive, it is not organized or visualized in a manner that allows for patterns or insights to be easily derived without having some knowledge of data analytics methods and applications.
 
-Therefore, our R Shiny application seeks to address this and deep dive into the areas including but not limited to: 
+Therefore, our R Shiny application seeks to address this and deep dive into the areas including but not limited to:
 
-1.  Categorizing the different types of procurement so that past suppliers for such goods or services can be easily matched with inter-agencies.  
+1.  Categorizing the records from its current raw text form; identify goods or services which are required by the government. This is crucial to enable practical use of the dataset by any user group.
+    a.  Examine and forecast time-series trends in procurement spend; is there any truth in the hypothesis that organizations tend to spend more liberally at the end of budgeting period?
 
-```{=html}
-<!-- -->
-```
-2.  Identify what kinds of good or services is most often procured by each ministry or agency 
+    b.  Is there any difference in GeBIZ procurement during the Covid period (identified as April 2020 to March 2022 by the Auditor-General's Office), when emergency procurement procedures were utilized?
+2.  The dataset from GeBIZ is limited in scope; expand the scope beyond the seven variables
+    a.  Enrich the dataset by labeling the Ministry which each Government Agency belongs to
 
-```{=html}
-<!-- -->
-```
-3.  Forecast procurement expenses for each ministry or agency in the coming year 
-
-```{=html}
-<!-- -->
-```
-4.  Correlation analysis between successful bidder\'s Paid-up Capital (S\$) and Awarded Amount (S\$) 
-
-```{=html}
-<!-- -->
-```
-5.  Decision tree matrix to visualise relationship between successful bidder\'s primary industry, Paid-Up Capital (S\$), type of product or service required, and awarded amount. For example, a project management company may be required for a large-scale project. The Singapore Standard Industrial Classification (SSIC) code is used to identify industry. 
-
-```{=html}
-<!-- -->
-```
-6.  Explore any bias in terms of frequency of using the same supplier that could highlight a need to investigate if this is with or without good reason. 
-
-```{=html}
-<!-- -->
-```
-7.  Examine trends in the peak and troughs of procurements in each agency to see if there is any truth in the hypothesis that organizations tend to spend more liberally at the end of the budget period.  
+    b.  Enrich the dataset with additional information on the supplier (i.e. primary industry, paid-up capital)
+3.  Explore any bias in terms of frequency of using the same supplier that could highlight a need to investigate if this is with or without good reason.
 
 ## **Relevant Related Work**
 
-It seems that there is a business intelligence tool named GeBIZ Insight that exists but it is either entirely an internal tool or for some other reason cannot be publicly found anymore.  
+It seems that there is a business intelligence tool named GeBIZ Insight that existed but it is either entirely an internal tool or for some other reason cannot be publicly found anymore.  
 
 Other previous works include an earlier ISSS608 class project in 2018 which provided network visualization between ministry, agency and supplier. The visualization supported inter- and intra- agency opportunities for information sharing and bulk negotiation with suppliers. A potential challenge to previous use case may arise due to variances in product or service and project size.  
 
-To enrich ministerial / agency understanding of opportunities, this project will approach the dataset from the perspective of **products and services**. In addition, we look to enrich the procurement data with ACRA information on industry classification and paid-up capital. This will enable the public and corporate bidders to understand any other underlying relationship between the successful bidder and project type. It will also be interesting to see if the insights generated 5 years ago have changed since the world has drastically changed with the COVID pandemic and other global events. 
+To enrich ministerial / agency understanding of opportunities, this project will approach the dataset from the perspective of products and services. In addition, we look to enrich the procurement data with ACRA information on industry classification and paid-up capital. This will enable the public and corporate bidders to understand any other underlying relationship between the successful bidder and project type. It will also be interesting to see if the insights generated 5 years ago have changed since the world has drastically changed with the COVID pandemic and other global events. 
 
 ## **Data Description** 
 
-Data will be drawn mainly from [data.gov.sg](https://data.gov.sg/dataset/government-procurement) and supplemented by GeBiz portal and Singapore Government Directory. We will extract the open tenders put out by government agencies from years Jan 2017 to March 2022. The main dataset will consist of 7 columns such as tender description, awarded date, awarded amount, supplier and agency information. We will also be extracting \'ACRA Information on Corporate Entities\' from data.gov.sg to supplement supplier\'s information on industry classification (Primary SSIC code & description) and paid-up capital.  
+Data will be drawn mainly from [data.gov.sg](https://data.gov.sg/dataset/government-procurement) and supplemented by GeBiz portal and Singapore Government Directory. We will extract the open tenders put out by government agencies from years Jan 2017 to March 2022. The main dataset will consist of 7 columns such as tender description, awarded date, awarded amount, supplier and agency information. We will also be extracting 'ACRA Information on Corporate Entities' from data.gov.sg to supplement supplier's information on industry classification (Primary SSIC code & description) and paid-up capital.
 
-## **Story Board**
+## **Data Preparation & Story Board**
 
-![](images/storyboard.png)
+![](images/image-943879244.png)
 
-The interactive dashboard will be split into 3 sections where users will be recommended to go through the sections sequentially.  
+1.  Data wrangling and Transformation
+    a.  Merge data from GeBiZ and ACRA into Government Procurement dataset
 
-[**1. Exploratory Data Analysis**]{.underline}
+    b.  Use topic modeling to analyze procurement text and determine cluster words relevant to products or services
 
-a.  Merge Procurement data and ACRA information on corporate entities 
+```{=html}
+<!-- -->
+```
+2.  Exploratory Data Analysis (EDA)
+    a.  Pareto Charts to visualize total amount awarded on each category
 
-b.  Insert procurement category as stated in GeBiz website into 2022 Procurement data 
+    b.  Interactive wordcloud to identify related key words to each category
 
-c.  Pareto Charts to show which procurement categories account for 80% of total government procurement spending 
+        ![](images/image-484157554.png)
 
-d.  Trendline for the different procurement categories and what is the trend of the value awarded 
+```{=html}
+<!-- -->
+```
+3.  Time-Series Analysis
+    a.  Time-series analysis to explore the relationship between calendar year period and volume/value of awarded contracts
 
-e.  Wordcloud / Named Entity Recognition to identify what kind of services or goods are often procured by different ministries 
+    b.  Predictive forecast of procurement spending by product / service
 
-f.  Treemap to breakdown the ministries spending by procurement categories and/or types of services/goods to identify top expenditure 
+    c.  Sankey diagram to show flow of spending from ministry to supplier, by procurement category
 
-[**2. Inferential Analysis**]{.underline}
+        ![](images/image-1392481260.png)
 
-a.  ANOVA to highlight any significant differences in mean for tenders by year/product/service/agency 
+```{=html}
+<!-- -->
+```
+4.  Cluster Analysis
+    a.  Network Analysis of the different ministries/agencies vs suppliers to investigate their connectivity and any strong links or bias
 
-b.  Predictive forecast of procurement spending by product / service 
-
-c.  Time-series analysis to explore the relationship between calendar year period and volume/value of awarded contracts 
-
-[**3. Cluster Analysis**]{.underline}
-
-a.  Network Analysis of the different ministries/agencies vs suppliers to investigate their connectivity and any strong links or bias 
-
-b.  Sankey diagram to show flows of ministries/agencies, suppliers, procurement categories and value 
-
-c.  Decision Tree  
+        ![](images/image-2125455200.png)
 
 ## **R Packages**
 
 The software used for this project is R, and the R packages that will be applied for the dashboard application are: 
 
 | **Packages**               | **Purpose**                                              |
-|-------------------------|-----------------------------------------------|
+|--------------------------|----------------------------------------------|
 | Shiny and Shiny dashboard  | To build interactive web application and visualisations  |
 | Spacyr                     | To tokenize and tag common product or services           |
 | Tidyverse                  | To tidy up and manipulate the data                       |
@@ -109,8 +98,25 @@ The software used for this project is R, and the R packages that will be applied
 | ggplot2                    | To create static graphs                                  |
 | knitr                      | Dynamic report generation with R                         |
 | ggstatsplot                | To create graphics with details from statistical tests   |
-| visNetwork                 | To create network visualisation                          |
+| visNetwork                 | To create network visualization                          |
+| tm_map, wordcloud2         | To create word cloud                                     |
+| crosstalk                  | To link different plots                                  |
+| LDAvis                     | To visualize and interpret topic models                  |
 
 ## **Project Milestones**
 
 ![](images/timeline.png)
+
+[\[1\]](#_ftnref1) https://www.mof.gov.sg/policies/government-procurement
+
+[\[2\]](#_ftnref2) https://www.gebiz.gov.sg/singapore-government-procurement-regime.html
+
+## **References**
+
+Auto, H. (2022, July 20). *Auditor-General's Office report: 8 key findings \| The Straits Times*. www.straitstimes.com. https://www.straitstimes.com/singapore/eight-key-findings-in-agos-report
+
+*GeBIZ \| Guide to Singapore Procurement*. (n.d.). www.gebiz.gov.sg. https://www.gebiz.gov.sg/singapore-government-procurement-regime.html
+
+*Group17 Overview - Visual Analytics and Applications*. (n.d.). Wiki.smu.edu.sg. Retrieved February 12, 2023, from https://wiki.smu.edu.sg/1718t3isss608/Group17_Overview
+
+*Government Procurement*. (n.d.). MOF. Retrieved February 12, 2023, from https://www.mof.gov.sg/policies/government-procurement
