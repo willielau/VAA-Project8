@@ -1,12 +1,10 @@
 ---
-title: "Project Proposal"
+title: "Project Proposal: Insights into Government Procurement"
 ---
-
-# **Insights into Government Procurement**
 
 ## **Project Motivation**
 
-Government Electronic Business (GeBIZ) is Singapore Government's one-stop e-procurement portal, created to facilitate transparency in procurement requirements, procedure, and evaluation[\[1\]](#_ftn1). Purchases can either be centralised (ministries and government agencies will then purchase off service-wide contracts) or decentralised. GeBIZ encompasses the public sector's request for quotations and tenders within the procurement procedure, except where emergency procurement procedures apply:
+Government Electronic Business (GeBIZ) is Singapore Government's one-stop e-procurement portal, created to facilitate transparency in procurement requirements, procedure, and evaluation. Purchases can either be centralised (ministries and government agencies will then purchase off service-wide contracts) or decentralised. GeBIZ encompasses the public sector's request for quotations and tenders within the procurement procedure, except where emergency procurement procedures apply:
 
 | Value                 | Category             | In GeBiz? | Description                          |
 |-----------------|-----------------|-----------|--------------------------|
@@ -14,7 +12,7 @@ Government Electronic Business (GeBIZ) is Singapore Government's one-stop e-proc
 | S\$6.000 to S\$90,000 | Quotation            | Yes       | Invitation to quote on GeBiz         |
 | Above S\$90,000       | Tender               | Yes       | Open, selective, or limited tender   |
 
-Summary of Procurement Procedure, source: GeBIZ[\[2\]](#_ftn2)
+Summary of Procurement Procedure, source: GeBIZ
 
 Records of Government Procurement via GeBIZ between 1 April 2016 and 31 March 2022 are available on data.gov.sg. In this project, we aim to categorise the products or services from the raw text provided by GeBIZ, thereby generating powerful insights on government procurements. This treasure trove has not been widely explored or utilized (at least publicly) and through a R Shiny application, we seek to explore meaningful insights that can aide anyone looking into government procurements, be it the government agencies themselves, the suppliers keen on participating in government tenders, or even a member of the general public with an interest to see one facet of how tax dollars are spent.
 
@@ -106,10 +104,6 @@ The software used for this project is R, and the R packages that will be applied
 ## **Project Milestones**
 
 ![](images/timeline.png)
-
-[\[1\]](#_ftnref1) https://www.mof.gov.sg/policies/government-procurement
-
-[\[2\]](#_ftnref2) https://www.gebiz.gov.sg/singapore-government-procurement-regime.html
 
 ## **References**
 
